@@ -27,6 +27,57 @@ async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
   return json.data
 }
 
+export async function getConfig() {
+  const data = await fetchAPI(
+    `
+    query getConfig {
+      generalSettings {
+        title
+        description
+      }
+    }`
+  )
+  return data?.generalSettings
+}
+
+export async function  getMediaItems() {
+  const data = await fetchAPI(
+    `
+    query getMedia {
+      mediaItems(where: {name: "logo-web"}) {
+        nodes {
+          mediaItemUrl
+          mediaDetails {
+            height
+            width
+          }
+          title
+        }
+      }
+    }`
+  )
+  return data?.mediaItems?.nodes[0]
+}
+
+export async function  getMenu() {
+  const data = await fetchAPI(
+    `
+    query getMenu {
+      menu(id: "dGVybToxNg==") {
+        menuItems {
+          nodes {
+            id
+            path
+            label
+          }
+        }
+      }
+    }`
+  )
+  return data?.menu.menuItems?.nodes
+}
+
+
 export async function getPreviewPost(id, idType = 'DATABASE_ID') {
   const data = await fetchAPI(
     `
@@ -209,4 +260,31 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
   if (data.posts.edges.length > 2) data.posts.edges.pop()
 
   return data
+}
+
+export async function getAllPagesWithSlugs() {
+  const data = await fetchAPI(`
+  query getAllPageBySlug{
+    pages(first: 10000) {
+      edges {
+        node {
+          slug
+        }
+      }
+    }
+  }
+  `);
+  return data?.pages;
+}
+
+export async function getPageBySlug(slug) {
+  const data = await fetchAPI(`
+  query getPageBySlug{
+    page(id: "${slug}", idType: URI) {
+      title
+      content
+    }
+  }
+  `);
+  return data?.page;
 }

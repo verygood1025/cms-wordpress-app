@@ -13,5 +13,22 @@ const { protocol, hostname, port, pathname } = new URL(
 module.exports = {
   images: {
     domains: ['0.gravatar.com','secure.gravatar.com','linkbio.com.vn'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '0.gravatar.com',
+        pathname: '*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'secure.gravatar.com',
+        pathname: '*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'linkbio.com.vn',
+        pathname: '*',
+      }
+    ],
   },
 }

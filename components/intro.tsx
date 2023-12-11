@@ -1,28 +1,46 @@
-import { CMS_NAME, CMS_URL } from '../lib/constants'
+import TsBg from './ts-bg'
+import cn from 'classnames'
+import Container from './container'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Intro() {
+export default function Intro({logoImage, allSetting, menuItems}) {
+  const title = allSetting.title
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
-      </h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Next.js
-        </a>{' '}
-        and{' '}
-        <a
-          href={CMS_URL}
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          {CMS_NAME}
-        </a>
-        .
-      </h4>
+    <section className="bg-red-700 ] h-[500px] relative">
+      <TsBg />
+      <div className='Top-bar pt-5 pb-5 flex z-50 fixed top-0 left-0 right-0 justify-between items-center'>
+        <Container>
+          <div className="flex justify-between items-center">
+            {logoImage && (
+              <Link href="/">
+                <Image
+                  width={logoImage?.mediaDetails?.width}
+                  height={logoImage?.mediaDetails?.height}
+                  priority
+                  alt={`Cover Image for ${logoImage.title}`}
+                  src={logoImage?.mediaItemUrl}
+                  className={'w-[auto] h-20'}
+                />
+              </Link>
+            )}
+            {menuItems && (
+              <nav className=''>
+                <ul className='menu-wrap flex gap-4'> 
+                  {menuItems.map(({ id, path, label }) => (
+                    <li
+                      key={id}
+                      className="nav-links font-ftitle font-bold px-4 cursor-pointer uppercase tracking-[0.1em] text-white hover:scale-105 hover:text-yellow-300 duration-200 link-underline"
+                    >
+                      <Link href={path}>{label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+          </div>
+        </Container>
+      </div>
     </section>
   )
 }
