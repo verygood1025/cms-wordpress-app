@@ -1,12 +1,9 @@
-import { createContext, useContext, useState } from "react";
 import Image from 'next/legacy/image'
 import Link from 'next/link'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 import { useQRCode } from 'next-qrcode';
-import { useRouter } from "next/router";
 import getURL from "../lib/getURL";
 
 
@@ -61,7 +58,7 @@ export default function ListContact({ username, contactLink, socialLink }) {
                 } 
                 modal
                 nested >
-                {function (close) {
+                {close => {
                     return (
                         <div id="zalo" className="modal">
                             <button className="close" onClick={close}>&times;</button>
@@ -104,7 +101,7 @@ export default function ListContact({ username, contactLink, socialLink }) {
                 } 
                 modal
                 nested >
-                {function (close) {
+                {close => {
                     return (
                         <div id="ngan-hang" className="modal">
                             <button className="close" onClick={close}>&times;</button>
@@ -146,7 +143,7 @@ export default function ListContact({ username, contactLink, socialLink }) {
                 } 
                 modal
                 nested >
-                {function (close) {
+                {close => {
                     return (
                         <div id="momo" className="modal">
                             <button className="close" onClick={close}>&times;</button>
