@@ -160,6 +160,41 @@ body {
   max-width: calc(100vw - 40px);
 }
 
+.modal-wrapper {
+  width: 500px;
+  height: 600px;
+}
+
+.modal {
+  background: white;
+  height:100%;
+  width:100%;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-body {
+  padding-top: 10px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 25px;
+}
+
 h1,
 h2,
 h3,
@@ -180,27 +215,27 @@ p {
   margin: 0px calc(0px - var(--space) / 2) calc(0px - var(--space)) !important;
 
 }
-.list-contact li {
+.list-contact .list-contact-item {
   @apply w-[calc(100%/var(--colum))] pr-[calc(var(--space)/2)] pl-[calc(var(--space)/2)] mb-[var(--space)] m-0 py-0;
 }
-.list-contact a {
+.list-contact a,.list-contact button {
   @apply w-[var(--width)] h-[var(--width)] flex flex-wrap justify-center items-center border border-[color:var(--text-color)] mx-auto my-0 rounded-[50%] border-solid hover:border-[color:var(--hover-color)];
   --width: 70px;
   background: transparent;
 }
-.list-contact a:hover {
+.list-contact a:hover,.list-contact button:hover {
   background: var(--hover-color);
 }
-.list-contact a svg {
+.list-contact a svg, .list-contact button svg {
   @apply max-w-[50%] max-h-[50%] w-[50px] h-auto;
 }
-.list-contact a svg path {
+.list-contact a svg path, .list-contact button svg path {
   @apply fill-[var(--text-color)];
 }
 .list-contact .website a svg path {
   @apply stroke-[color:var(--text-color)];
 }
-.list-contact a:hover svg path {
+.list-contact a:hover svg path, .list-contact button:hover svg path {
   @apply fill-[var(--text-hover-color)];
 }
 .list-contact .website a:hover svg path {
@@ -414,7 +449,7 @@ textarea {
     --colum: 4;
     --space: 10px;
   }
-  .list-contact a {
+  .list-contact a, .list-contact button {
     --width: 50px;
   }
   .news-item {
