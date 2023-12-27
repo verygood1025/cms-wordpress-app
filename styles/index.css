@@ -232,9 +232,6 @@ p {
 .list-contact a svg path, .list-contact button svg path {
   @apply fill-[var(--text-color)];
 }
-.list-contact .website a svg path {
-  @apply stroke-[color:var(--text-color)];
-}
 .list-contact a:hover svg path, .list-contact button:hover svg path {
   @apply fill-[var(--text-hover-color)];
 }
