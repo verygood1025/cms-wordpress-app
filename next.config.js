@@ -12,23 +12,42 @@ const { protocol, hostname, port, pathname } = new URL(
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ['0.gravatar.com','secure.gravatar.com','linkbio.com.vn'],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    domains: ['0.gravatar.com','secure.gravatar.com','linkbio.com.vn','ui-avatars.com'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '0.gravatar.com',
-        pathname: '*',
+        port: '',
+        pathname: '**',
       },
       {
         protocol: 'https',
         hostname: 'secure.gravatar.com',
-        pathname: '*',
+        port: '',
+        pathname: '**',
       },
       {
         protocol: 'https',
         hostname: 'linkbio.com.vn',
-        pathname: '*',
+        port: '',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ui-avatars.com',
+        port: '',
+        pathname: '**',
       }
     ],
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+      }
+    }
+    return config;
+  }
 }

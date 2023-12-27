@@ -1,17 +1,16 @@
 import TsBg from './ts-bg'
-import cn from 'classnames'
 import Container from './container'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Intro({logoImage, allSetting, menuItems}) {
+export default function Intro({logoImage, allSetting}) {
   const title = allSetting.title
   return (
-    <section className="bg-red-700 ] h-[500px] relative">
+    <section className="bg-red-700 ] h-[120px] relative">
       <TsBg />
-      <div className='Top-bar pt-5 pb-5 flex z-50 fixed top-0 left-0 right-0 justify-between items-center'>
+      <div className='Top-bar pt-5 pb-5 flex z-50 top-0 left-0 right-0 justify-between items-center'>
         <Container>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-center items-center">
             {logoImage && (
               <Link href="/">
                 <Image
@@ -24,7 +23,7 @@ export default function Intro({logoImage, allSetting, menuItems}) {
                 />
               </Link>
             )}
-            {menuItems && (
+            {/* {menuItems && (
               <nav className=''>
                 <ul className='menu-wrap flex gap-4'> 
                   {menuItems.map(({ id, path, label }) => (
@@ -37,7 +36,7 @@ export default function Intro({logoImage, allSetting, menuItems}) {
                   ))}
                 </ul>
               </nav>
-            )}
+            )} */}
           </div>
         </Container>
       </div>

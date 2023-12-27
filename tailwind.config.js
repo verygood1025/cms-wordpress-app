@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Montserrat"', 'Helvetica', 'Arial', 'sans-serif'],
+        'sans': ['Quicksand', 'Helvetica', 'Arial', 'sans-serif'],
         ftitle:['"Kanit"'],
       },
       colors: {

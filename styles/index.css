@@ -102,3 +102,348 @@
 .wp-block-media-text {
   @apply grid grid-cols-2 gap-4;
 }
+
+/* Custom Css */
+
+body {
+  --bg-body: url("https://linkbio.com.vn/wp-content/uploads/2023/11/4880206-scaled.jpg");
+  --bg-color: #fff;
+  --bg-image: none;
+  --border-color: rgba(255, 255, 255, 0.5);
+  --border-radius: 10px;
+  --main-color: #ab0000;
+  --hover-color: #ab0000;
+  --text-color: #000;
+  --text-hover-color: #fff;
+  --site-color: #ab0000;
+}
+
+.list-item {
+  @apply relative text-[color:var(--text-color)] transition-all duration-[0.3s] uppercase cursor-pointer font-bold text-[15px] m-0 px-2.5 py-[5px] border-r-[#d3d3d3] border-r border-solid last:border-r-0;
+  background: transparent;
+  outline: none;
+  border-radius: 0px!important;
+}
+.list-item:hover,
+.list-item.active, .list-item.react-tabs__tab--selected {
+  @apply text-[color:var(--text-hover-color)];
+  background: var(--hover-color);
+}
+
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 0;
+  line-height: 1;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.modal > .close:hover{
+  background: #ab0000;
+  color: #ffffff;
+}
+
+#popup-root .popup-content{
+  width: 400px;
+  max-width: calc(100vw - 40px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  @apply text-[color:var(--text-color)];
+}
+
+.home-profile p {
+  @apply leading-normal mb-0 mb-[5px];
+}
+
+.list-contact {
+  --colum: 5;
+  --space: 20px;
+  margin: 0px calc(0px - var(--space) / 2) calc(0px - var(--space)) !important;
+
+}
+.list-contact li {
+  @apply w-[calc(100%/var(--colum))] pr-[calc(var(--space)/2)] pl-[calc(var(--space)/2)] mb-[var(--space)] m-0 py-0;
+}
+.list-contact a {
+  @apply w-[var(--width)] h-[var(--width)] flex flex-wrap justify-center items-center border border-[color:var(--text-color)] mx-auto my-0 rounded-[50%] border-solid hover:border-[color:var(--hover-color)];
+  --width: 70px;
+  background: transparent;
+}
+.list-contact a:hover {
+  background: var(--hover-color);
+}
+.list-contact a svg {
+  @apply max-w-[50%] max-h-[50%] w-[50px] h-auto;
+}
+.list-contact a svg path {
+  @apply fill-[var(--text-color)];
+}
+.list-contact .website a svg path {
+  @apply stroke-[color:var(--text-color)];
+}
+.list-contact a:hover svg path {
+  @apply fill-[var(--text-hover-color)];
+}
+.list-contact .website a:hover svg path {
+  @apply stroke-[color:var(--text-hover-color)];
+}
+.home-footer {
+  @apply text-center;
+}
+.bio-share-box {
+  @apply text-center;
+}
+.bio-share-box h4 {
+  @apply text-[color:var(--hover-color)] leading-[1.2] uppercase mt-2.5 mb-0 px-0 py-[5px];
+}
+.bio-share-box p {
+  @apply m-2.5;
+}
+.bio-share-box img {
+  @apply border-[color:var(--text-color)] border-[3px] border-solid;
+}
+.bio-share-box .new-content {
+  @apply mt-5;
+}
+.page-button {
+  @apply border-[color:var(--text-color)] text-[color:var(--text-color)] text-xl leading-none transition-all duration-[0.3s] mx-auto my-0 px-[30px] py-2.5 border-2 border-solid hover:border-[color:var(--hover-color)] hover:text-[color:var(--text-hover-color)];
+}
+.page-button:hover {
+  background: var(--hover-color);
+}
+.info-setting-box img {
+  @apply rounded-[5px];
+}
+th.acf-th {
+  text-transform: unset;
+}
+.image-item {
+  @apply mb-5;
+}
+.image-item a {
+  @apply block overflow-hidden w-full relative pt-[60%] rounded-[10px];
+}
+.image-item img {
+  @apply w-full h-full object-cover absolute left-0 top-0;
+}
+.video-item {
+  @apply block overflow-hidden w-full relative mb-5 pt-[60%] rounded-[10px];
+}
+.video-item iframe {
+  @apply w-full h-full object-cover absolute left-0 top-0;
+}
+.news-item {
+  @apply text-center mb-5 pt-5 pb-[15px] px-5 rounded-[5px];
+  background: rgba(0, 0, 0, 0.1);
+}
+.news-item .link-image {
+  @apply block overflow-hidden w-full relative mb-2.5 pt-[60%] rounded-[10px];
+}
+.news-item .link-image img {
+  @apply w-full h-full object-cover absolute left-0 top-0;
+}
+.news-item h4 {
+  @apply text-xl leading-[1.2] uppercase mb-0 px-0 py-[5px];
+}
+.news-item h4 a {
+  @apply text-[color:var(--hover-color)];
+}
+.news-item .day,
+.bio-share-box .day {
+  @apply flex justify-center items-center m-0;
+}
+.news-item .day svg,
+.bio-share-box .day svg {
+  @apply mr-2.5;
+}
+.news-item .day svg path,
+.bio-share-box .day svg path {
+  @apply fill-[var(--text-color)];
+}
+.poppup-box {
+  @apply h-full rounded-[5px];
+}
+.poppup-close {
+  @apply right-[7px] top-[7px];
+}
+.product-setting-box {
+  @apply flex flex-wrap mr-[-5px] ml-[-5px] mt-0 -mb-2.5;
+}
+.product-item {
+  @apply w-6/12 text-center mb-2.5 px-[5px] py-0;
+}
+.product-item .link-image {
+  @apply block overflow-hidden w-full relative mb-2.5 pt-[70%] rounded-[10px];
+}
+.product-item .link-image img {
+  @apply w-full h-full object-cover absolute left-0 top-0;
+}
+.product-item h4 {
+  @apply text-[17px] mb-[5px];
+}
+.product-item .price {
+  @apply mb-0;
+}
+.account-user img {
+  @apply border-[color:var(--hover-color)] rounded-[50%] border-[3px] border-solid;
+}
+.account-user .mr-half {
+  @apply mr-0 mb-2.5;
+}
+.select-resize-ghost,
+.select2-container .select2-choice,
+.select2-container .select2-selection,
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+  @apply shadow-none rounded-[7px];
+}
+#acf-form > .acf-fields > .acf-field {
+  @apply px-0 py-[15px];
+}
+.acf-actions .button {
+  @apply mr-0;
+}
+.my-account .dashboard-links {
+  @apply mr-[-5px] ml-[-5px] my-0;
+}
+.my-account .dashboard-links li {
+  @apply w-[calc(100%/3)] mb-2.5 m-0 px-[5px] py-0;
+}
+.my-account .dashboard-links a {
+  @apply capitalize leading-[1.2] mr-0 px-[5px] py-[18px] hover:text-[color:var(--text-hover-color)];
+}
+.my-account .dashboard-links a:hover {
+  background: var(--hover-color);
+}
+.log-form .button {
+  @apply min-w-[200px];
+}
+@media (max-width: 849.5px) {
+  .my-account .account-user {
+    @apply justify-center flex items-center flex-col;
+  }
+  .my-account .account-user .mr-half {
+    @apply mr-0;
+  }
+  .my-account .account-user img {
+    @apply w-[100px];
+  }
+  .my-account .nav.nav-vertical {
+    @apply flex-wrap justify-center gap-[15px];
+    flex-flow: row;
+  }
+  .my-account .nav.nav-vertical li {
+    @apply w-[calc(100%/3_-_10px)] border border-[color:var(--hover-color)] leading-none px-[15px] py-[5px] border-solid;
+  }
+  .my-account .nav.nav-vertical li.active,
+  .my-account .nav.nav-vertical li:hover {
+    background: var(--hover-color);
+  }
+  .my-account .nav-vertical.nav-line > li > a {
+    @apply text-center justify-center;
+  }
+  .my-account .nav-vertical.nav-line > li.active > a,
+  .my-account .nav-vertical.nav-line > li > a:hover,
+  .my-account .nav-vertical.nav-line > li:hover > a {
+    @apply text-[color:var(--text-hover-color)];
+  }
+  .my-account .nav-vertical.nav-line > li > a:before {
+    @apply hidden;
+  }
+  .my-account .large-9 {
+    @apply border-t-[color:var(--hover-color)] pt-5 border-t border-dashed;
+  }
+  .page-dashboard #my-account-nav {
+    @apply hidden;
+  }
+  .my-account .dashboard-links li {
+    @apply w-[calc(100%/3)];
+  }
+}
+@media (max-width: 639.5px) {
+  body {
+    @apply text-[13px];
+  }
+  #bio-wrap {
+    @apply p-2.5;
+  }
+  .list-item {
+    @apply text-[11px];
+  }
+  .bio-content {
+    @apply p-2.5;
+  }
+  .home-head-top {
+    @apply -mt-2.5 mb-0 -mx-2.5;
+  }
+  .user-avatar a {
+    --width: 130px;
+  }
+  .home-action a,
+  .page-button {
+    @apply text-[15px] px-5 py-[7px];
+  }
+  .list-contact {
+    --colum: 4;
+    --space: 10px;
+  }
+  .list-contact a {
+    --width: 50px;
+  }
+  .news-item {
+    @apply pt-2.5 pb-[7px] px-2.5;
+  }
+  .news-item h4 {
+    @apply text-[17px];
+  }
+  .news-item .day,
+  .bio-share-box .day {
+    @apply text-[13px];
+  }
+  .product-item h4 {
+    @apply text-sm;
+  }
+}
+@media (max-width: 549px) {
+  .my-account .dashboard-links li {
+    @apply w-[calc(100%_/_2)];
+  }
+}
+@media (max-width: 413.5px) {
+  .my-account .nav.nav-vertical li {
+    @apply w-[calc(100%/2_-_8px)];
+  }
+  .list-item {
+    @apply text-[9px] p-[5px];
+  }
+  .product-item {
+    @apply w-full;
+  }
+}

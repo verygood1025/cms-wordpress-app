@@ -1,24 +1,24 @@
-import Image from 'next/image'
+import Image from 'next/legacy/image'
+import Link from 'next/link'
 
-export default function Avatar({ author }) {
-  const isAuthorHaveFullName = author?.node?.firstName && author?.node?.lastName
-  const name = isAuthorHaveFullName
-    ? `${author.node.firstName} ${author.node.lastName}`
-    : author.node.name || null
-
+export default function Avatar({username, fullName, infoNormal }) {
+  const userIcon = infoNormal?.userIcon?.node.sourceUrl ? infoNormal?.userIcon?.node.sourceUrl : `https://ui-avatars.com/api/?background=fff&color=ab0000&name=${fullName}`
   return (
-    <div className="flex items-center">
-      <div className="w-12 h-12 relative mr-4">
-        <Image
-          src={author.node.avatar.url}
-          fill
-          priority
-          className="rounded-full"
-          sizes="auto"
-          alt={name}
+    <>
+    {userIcon &&
+    <div className="user-avatar flex flex-wrap justify-center items-center mb-2.5">
+      <Link href={`/${username}`} className='relative w-[var(--width)] h-[var(--width)] overflow-hidden border-[calc(var(--width)/34)] border-[color:var(--hover-color)] mt-[calc(0px_-_var(--width)/2)] rounded-[50%] border-solid' style={{['--width' as any] : '170px'}}>
+        <Image 
+        priority
+        src={userIcon} 
+        alt={`Avata of ${fullName}`}
+        layout='fill'
+        objectFit='cover'
+        sizes={''} 
         />
-      </div>
-      <div className="text-xl font-bold">{name}</div>
+      </Link>
     </div>
+    }
+    </>
   )
 }
