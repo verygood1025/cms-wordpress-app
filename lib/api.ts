@@ -239,7 +239,11 @@ export async function getUserBySlug(username) {
 }
 
 export async function getVcard(username) {
-  const response = await fetch(`https://linkbio.com.vn/wp-json/wp/v2/getVcard?username=${username}`);
-  const vcard = await response.json();
-  return vcard;
+  try {
+    const response = await fetch(`https://linkbio.com.vn/wp-json/wp/v2/getVcard?username=${username}`);
+    const vcard = await response.json();
+    return vcard;
+  } catch(error) {
+    return '';
+  }
 }

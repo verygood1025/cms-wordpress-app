@@ -1,4 +1,4 @@
-export default function UserProfile({ username, fullName, infoNormal,vcard }) {
+export default function UserProfile({ username, fullName, infoNormal, vcard }) {
     const company = infoNormal?.company
     const position = infoNormal?.position
     return (
@@ -12,9 +12,11 @@ export default function UserProfile({ username, fullName, infoNormal,vcard }) {
             <p className="company">{company}</p>
             )}
         </div>
-        <div className="home-action flex flex-wrap justify-center items-center mt-2.5">
-            <a href={vcard} className="vcard-download uppercase font-bold bg-[var(--hover-color)] text-[color:var(--text-hover-color)] mr-5 px-[25px] py-2.5 rounded-[5px] last:mr-0 hover:bg-[var(--text-color)] hover:text-[color:var(--text-hover-color)]" title={fullName} download={`${fullName}.vcf`}>Lưu Danh Bạ</a>
-        </div>
+        {vcard != '' &&
+            <div className="home-action flex flex-wrap justify-center items-center mt-2.5">
+                <a href={vcard} className="vcard-download uppercase font-bold bg-[var(--hover-color)] text-[color:var(--text-hover-color)] mr-5 px-[25px] py-2.5 rounded-[5px] last:mr-0 hover:bg-[var(--text-color)] hover:text-[color:var(--text-hover-color)]" title={fullName} download={`${fullName}.vcf`}>Lưu Danh Bạ</a>
+            </div>
+        }
         </>
     )
 }
