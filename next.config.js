@@ -11,6 +11,7 @@ const { protocol, hostname, port, pathname } = new URL(
 
 /** @type {import('next').NextConfig} */
 module.exports = {
+  staticPageGenerationTimeout:1000,
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
